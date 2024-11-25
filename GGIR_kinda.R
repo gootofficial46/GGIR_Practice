@@ -1,5 +1,5 @@
-dataFolder <- "/Users/georgeannas/Desktop/test"
-outputFolder <- "/Users/georgeannas/Desktop/output"
+dataFolder <- "/Users/georgeannas/Desktop/CPC Research/Data/FALAH Unprocessed/"
+outputFolder <- "/Users/georgeannas/Desktop/CPC Research/Data/FALAH Data"
 
 # Load GGIR library
 if (!requireNamespace("GGIR", quietly = TRUE)) {
@@ -21,8 +21,9 @@ GGIR(
   do.imp = TRUE,                   # Imputation of non-wear time
   data_Format = 'csv',             # Specifies type of file
   chunksize = 1,                   # Number of days processed at a time
-  params_rawdata = list(
-    minimumFileSizeMB = 1,
+  extEpochData_timeformat = "%Y-%m-%d %H:%M:%S",
+  read.myacc.csv(
+    rmc.file = "/Users/georgeannas/Desktop/CPC Research/Data/FALAH Unprocessed/LAA_2023_020200005__029159_2023-06-22_13-09-03.csv",
     rmc.firstrow.acc = 2,
     rmc.firstrow.header = 1,
     rmc.header.length = 1,
@@ -31,10 +32,6 @@ GGIR(
     rmc.col.time = 1,
     rmc.unit.time = "character",
     rmc.sf = 1,
-    sep = ",",
-    extEpochData_timeformat = "%Y-%m-%d %H:%M:%S",
-    desiredtz = "VUT",
-    deviceName = "GENEActiv"
     ),
     
   # Mode 1 (Pre-processing and calibration)
