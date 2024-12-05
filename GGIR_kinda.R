@@ -1,4 +1,4 @@
-dataFolder <- "/Users/georgeannas/Desktop/CPC Research/Data/FALAH Unprocessed/"
+dataFolder <- "/Users/georgeannas/Desktop/CPC Research/Data/FALAH bin/"
 outputFolder <- "/Users/georgeannas/Desktop/CPC Research/Data/FALAH Data"
 
 # Load GGIR library
@@ -19,26 +19,14 @@ GGIR(
   mode = 1:5,                      # Run all five GGIR modes
   overwrite = TRUE,                # Overwrite existing output
   do.imp = TRUE,                   # Imputation of non-wear time
-  data_Format = 'csv',             # Specifies type of file
+  data_Format = 'bin',             # Specifies type of file
   chunksize = 1,                   # Number of days processed at a time
-  extEpochData_timeformat = "%Y-%m-%d %H:%M:%S",
-  read.myacc.csv(
-    rmc.file = "/Users/georgeannas/Desktop/CPC Research/Data/FALAH Unprocessed/LAA_2023_020200005__029159_2023-06-22_13-09-03.csv",
-    rmc.firstrow.acc = 2,
-    rmc.firstrow.header = 1,
-    rmc.header.length = 1,
-    rmc.col.acc = c(2,3,4),
-    rmc.col.temp = 5,
-    rmc.col.time = 1,
-    rmc.unit.time = "character",
-    rmc.sf = 1,
-    ),
     
   # Mode 1 (Pre-processing and calibration)
   do.cal = TRUE,                   # Perform auto-calibration
   do.enmo = TRUE,                  # Calculate ENMO (metric of acceleration)
   do.anglex = TRUE,                # Calculate angle relative to gravity
-  windowsizes = c(1, 900, 3600),   # Indicates the short epoch, long epoch, and non-wear detection
+  windowsizes = c(5, 900, 3600),   # Indicates the short epoch, long epoch, and non-wear detection
   printsummary = TRUE,             # Print summary to console
   verbose = TRUE,
   
